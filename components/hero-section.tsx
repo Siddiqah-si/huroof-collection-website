@@ -12,16 +12,16 @@ export function HeroSection() {
 
   const slides = [
     {
-      image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1920&q=80",
-      alt: "Man wearing Arabic typography cap and streetwear"
+      image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1920&q=80",
+      alt: "Arabic calligraphy and textile patterns"
     },
     {
-      image: "https://images.unsplash.com/photo-1590149613616-be8fdc21f9c4?w=1920&q=80",
-      alt: "Woman in elegant modest fashion"
+      image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=1920&q=80",
+      alt: "Folded t-shirts flat lay collection"
     },
     {
-      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=1920&q=80",
-      alt: "Indo-Pakistani inspired fashion"
+      image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=1920&q=80",
+      alt: "Clothing fabric texture close-up"
     }
   ]
 
