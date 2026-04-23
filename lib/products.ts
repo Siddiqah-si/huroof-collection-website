@@ -1,133 +1,247 @@
 export interface Product {
   id: string
   name: string
+  nameArabic?: string
   price: number
   originalPrice?: number
   images: string[]
   sizes: string[]
   stock: number
-  category: "all" | "him" | "her"
+  category: "men" | "women" | "pod" | "accessories"
   isNew?: boolean
+  isBestSeller?: boolean
+  isCustomizable?: boolean
   description: string
 }
 
 export const products: Product[] = [
+  // Men's Collection
   {
     id: "1",
-    name: "Identity Oversized Tee",
-    price: 89,
+    name: "Arabic Script Cap",
+    nameArabic: "قبعة حروف",
+    price: 39,
+    images: [
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&q=80",
+      "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=800&q=80",
+    ],
+    sizes: ["One Size"],
+    stock: 25,
+    category: "men",
+    isNew: true,
+    isBestSeller: true,
+    description:
+      "Premium cotton cap with embroidered Arabic calligraphy. Adjustable strap for perfect fit.",
+  },
+  {
+    id: "2",
+    name: "Bismillah Oversized Tee",
+    nameArabic: "بسم الله",
+    price: 59,
     images: [
       "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&q=80",
       "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&q=80",
     ],
-    sizes: ["S", "M", "L", "XL"],
-    stock: 12,
-    category: "all",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    stock: 18,
+    category: "men",
     isNew: true,
     description:
-      "The signature oversized silhouette that defines who you are. Premium heavyweight cotton with dropped shoulders.",
+      "Heavyweight cotton oversized tee featuring minimalist Arabic typography. Dropped shoulders, relaxed fit.",
   },
   {
-    id: "2",
-    name: "Letters Hoodie Black",
-    price: 149,
-    originalPrice: 189,
+    id: "3",
+    name: "Sabr Hoodie",
+    nameArabic: "صبر",
+    price: 89,
+    originalPrice: 109,
     images: [
       "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80",
       "https://images.unsplash.com/photo-1578768079052-aa76e52ff62e?w=800&q=80",
     ],
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    stock: 5,
-    category: "all",
-    isNew: true,
-    description:
-      "Crafted from French terry cotton. The hoodie that speaks before you do.",
-  },
-  {
-    id: "3",
-    name: "Raw Edge Cargo Pants",
-    price: 169,
-    images: [
-      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&q=80",
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=80",
-    ],
-    sizes: ["28", "30", "32", "34", "36"],
+    sizes: ["S", "M", "L", "XL"],
     stock: 8,
-    category: "him",
+    category: "men",
+    isBestSeller: true,
     description:
-      "Utilitarian design meets street aesthetics. Distressed edges, multiple pockets, relaxed fit.",
+      "French terry cotton hoodie with 'Sabr' (Patience) calligraphy. Kangaroo pocket, drawstring hood.",
   },
   {
     id: "4",
-    name: "Script Crop Top",
-    price: 69,
-    images: [
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&q=80",
-      "https://images.unsplash.com/photo-1485968579169-a6b30571e7c4?w=800&q=80",
-    ],
-    sizes: ["XS", "S", "M", "L"],
-    stock: 15,
-    category: "her",
-    isNew: true,
-    description:
-      "Minimal script embroidery on organic cotton. Cropped cut for the modern silhouette.",
-  },
-  {
-    id: "5",
-    name: "Deconstructed Jacket",
-    price: 289,
-    images: [
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=80",
-      "https://images.unsplash.com/photo-1548126032-079a0fb0099d?w=800&q=80",
-    ],
-    sizes: ["S", "M", "L", "XL"],
-    stock: 3,
-    category: "all",
-    description:
-      "The statement piece. Asymmetric cuts, exposed seams, raw aesthetics.",
-  },
-  {
-    id: "6",
-    name: "Foundation Tee Earth",
-    price: 79,
+    name: "Streetwear Arabic Tee",
+    nameArabic: "شارع",
+    price: 49,
     images: [
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80",
       "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800&q=80",
     ],
     sizes: ["S", "M", "L", "XL"],
-    stock: 20,
-    category: "all",
+    stock: 30,
+    category: "men",
     description:
-      "Earth-toned essential. Garment dyed for that lived-in feel from day one.",
+      "Contemporary streetwear meets Arabic heritage. Premium cotton with bold script design.",
+  },
+  // Women's Collection - Modest Fashion
+  {
+    id: "5",
+    name: "Elegant Abaya",
+    nameArabic: "عباية",
+    price: 129,
+    images: [
+      "https://images.unsplash.com/photo-1590149613616-be8fdc21f9c4?w=800&q=80",
+      "https://images.unsplash.com/photo-1583234944037-8620a0e4e5a0?w=800&q=80",
+    ],
+    sizes: ["S", "M", "L", "XL"],
+    stock: 12,
+    category: "women",
+    isNew: true,
+    description:
+      "Modern flowing abaya with subtle embroidery details. Lightweight fabric perfect for all seasons.",
+  },
+  {
+    id: "6",
+    name: "Indo-Pak Kurta Set",
+    nameArabic: "كورتا",
+    price: 159,
+    images: [
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&q=80",
+      "https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=800&q=80",
+    ],
+    sizes: ["XS", "S", "M", "L"],
+    stock: 6,
+    category: "women",
+    isBestSeller: true,
+    description:
+      "Traditional Indo-Pakistani kurta with contemporary cuts. Includes matching palazzo pants.",
   },
   {
     id: "7",
-    name: "Wide Leg Trousers",
-    price: 139,
+    name: "Modest Maxi Dress",
+    nameArabic: "فستان",
+    price: 109,
     images: [
+      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&q=80",
       "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=80",
-      "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&q=80",
     ],
-    sizes: ["XS", "S", "M", "L"],
-    stock: 7,
-    category: "her",
+    sizes: ["XS", "S", "M", "L", "XL"],
+    stock: 15,
+    category: "women",
+    isNew: true,
     description:
-      "Flowing silhouette meets structured tailoring. High waist, pleated front.",
+      "Floor-length modest maxi dress with long sleeves. Elegant silhouette for any occasion.",
   },
   {
     id: "8",
-    name: "Oversized Knit Sweater",
-    price: 159,
+    name: "Arabic Script Women's Tee",
+    nameArabic: "حروف",
+    price: 49,
     images: [
-      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&q=80",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&q=80",
+      "https://images.unsplash.com/photo-1485968579169-a6b30571e7c4?w=800&q=80",
+    ],
+    sizes: ["XS", "S", "M", "L"],
+    stock: 20,
+    category: "women",
+    description:
+      "Relaxed fit women's tee with elegant Arabic calligraphy. Soft cotton blend.",
+  },
+  // Print On Demand - Customizable
+  {
+    id: "9",
+    name: "Custom Arabic Name Tee",
+    nameArabic: "اسمك",
+    price: 69,
+    images: [
+      "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=800&q=80",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=800&q=80",
+    ],
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    stock: 100,
+    category: "pod",
+    isNew: true,
+    isCustomizable: true,
+    description:
+      "Create your own! Enter your name or any text in Arabic or English. Premium DTG printing.",
+  },
+  {
+    id: "10",
+    name: "Custom Arabic Quote Hoodie",
+    nameArabic: "اقتباس",
+    price: 99,
+    images: [
+      "https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=800&q=80",
       "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&q=80",
     ],
-    sizes: ["S", "M", "L"],
-    stock: 4,
-    category: "all",
+    sizes: ["S", "M", "L", "XL"],
+    stock: 100,
+    category: "pod",
+    isCustomizable: true,
+    description:
+      "Design your hoodie with any Arabic quote or English text. High-quality embroidery or print.",
+  },
+  {
+    id: "11",
+    name: "Custom Cap - Your Text",
+    nameArabic: "قبعتك",
+    price: 49,
+    images: [
+      "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=800&q=80",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?w=800&q=80",
+    ],
+    sizes: ["One Size"],
+    stock: 100,
+    category: "pod",
+    isCustomizable: true,
+    isBestSeller: true,
+    description:
+      "Personalize your cap with Arabic calligraphy or English text. Embroidered to perfection.",
+  },
+  // Accessories
+  {
+    id: "12",
+    name: "Arabic Tote Bag",
+    nameArabic: "حقيبة",
+    price: 35,
+    images: [
+      "https://images.unsplash.com/photo-1597633125184-9fd7e54f4e49?w=800&q=80",
+      "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=800&q=80",
+    ],
+    sizes: ["One Size"],
+    stock: 40,
+    category: "accessories",
+    description:
+      "Heavy-duty canvas tote with Arabic typography. Perfect everyday carry.",
+  },
+  {
+    id: "13",
+    name: "Prayer Beads - Tasbih",
+    nameArabic: "تسبيح",
+    price: 25,
+    images: [
+      "https://images.unsplash.com/photo-1585686369536-c59bd03d3c98?w=800&q=80",
+      "https://images.unsplash.com/photo-1609158584287-7de33b98e1dc?w=800&q=80",
+    ],
+    sizes: ["33 Beads", "99 Beads"],
+    stock: 50,
+    category: "accessories",
+    description:
+      "Handcrafted prayer beads in various materials. Elegant and meaningful accessory.",
+  },
+  {
+    id: "14",
+    name: "Arabic Beanie",
+    nameArabic: "قلنسوة",
+    price: 29,
+    images: [
+      "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=800&q=80",
+      "https://images.unsplash.com/photo-1510598969022-c4c6c5d05769?w=800&q=80",
+    ],
+    sizes: ["One Size"],
+    stock: 22,
+    category: "accessories",
     isNew: true,
     description:
-      "Hand-knitted texture. Chunky yarn, oversized fit, statement piece for colder days.",
+      "Cozy knit beanie with subtle Arabic embroidery. Warm and stylish.",
   },
 ]
 
@@ -137,13 +251,21 @@ export const getProductById = (id: string): Product | undefined => {
 
 export const getProductsByCategory = (category: string): Product[] => {
   if (category === "all") return products
-  return products.filter((p) => p.category === category || p.category === "all")
+  return products.filter((p) => p.category === category)
 }
 
 export const getNewArrivals = (): Product[] => {
   return products.filter((p) => p.isNew)
 }
 
+export const getBestSellers = (): Product[] => {
+  return products.filter((p) => p.isBestSeller)
+}
+
 export const getLimitedStock = (): Product[] => {
-  return products.filter((p) => p.stock <= 5)
+  return products.filter((p) => p.stock <= 10)
+}
+
+export const getCustomizableProducts = (): Product[] => {
+  return products.filter((p) => p.isCustomizable)
 }

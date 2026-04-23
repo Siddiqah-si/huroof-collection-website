@@ -77,8 +77,18 @@ export function ProductCard({ product, showLimitedBadge }: ProductCardProps) {
               New
             </span>
           )}
+          {product.isCustomizable && (
+            <span className="bg-sand text-background px-2 py-1 text-[10px] uppercase tracking-wider">
+              Customizable
+            </span>
+          )}
+          {product.isBestSeller && !product.isNew && (
+            <span className="bg-green text-foreground px-2 py-1 text-[10px] uppercase tracking-wider">
+              Best Seller
+            </span>
+          )}
           {showLimitedBadge && isLowStock && (
-            <span className="bg-earth text-background px-2 py-1 text-[10px] uppercase tracking-wider">
+            <span className="bg-sand text-background px-2 py-1 text-[10px] uppercase tracking-wider">
               Only {product.stock} Left
             </span>
           )}
@@ -120,7 +130,7 @@ export function ProductCard({ product, showLimitedBadge }: ProductCardProps) {
                 disabled={!selectedSize}
                 className={`w-full py-2 text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all ${
                   selectedSize
-                    ? "bg-foreground text-background hover:bg-earth"
+                    ? "bg-foreground text-background hover:bg-sand"
                     : "bg-muted text-muted-foreground cursor-not-allowed"
                 }`}
               >
@@ -134,9 +144,12 @@ export function ProductCard({ product, showLimitedBadge }: ProductCardProps) {
 
       {/* Product Info */}
       <div className="space-y-1">
-        <h3 className="text-sm font-medium tracking-wide group-hover:text-earth transition-colors line-clamp-1">
+        <h3 className="text-sm font-medium tracking-wide group-hover:text-sand transition-colors line-clamp-1">
           {product.name}
         </h3>
+        {product.nameArabic && (
+          <span className="text-xs text-muted-foreground">{product.nameArabic}</span>
+        )}
         <div className="flex items-center gap-2">
           <span className="text-sm">
             ${product.price}

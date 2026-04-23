@@ -4,29 +4,30 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #fafaf9;
+  --background: #0B0B0B;
+  --foreground: #F5F5F5;
   --card: #141414;
-  --card-foreground: #fafaf9;
-  --popover: #0a0a0a;
-  --popover-foreground: #fafaf9;
-  --primary: #fafaf9;
-  --primary-foreground: #0a0a0a;
+  --card-foreground: #F5F5F5;
+  --popover: #0B0B0B;
+  --popover-foreground: #F5F5F5;
+  --primary: #F5F5F5;
+  --primary-foreground: #0B0B0B;
   --secondary: #1a1a1a;
-  --secondary-foreground: #fafaf9;
+  --secondary-foreground: #F5F5F5;
   --muted: #262626;
   --muted-foreground: #a3a3a3;
-  --accent: #c4a77d;
-  --accent-foreground: #0a0a0a;
+  --accent: #2E7D32;
+  --accent-foreground: #F5F5F5;
   --destructive: #dc2626;
-  --destructive-foreground: #fafaf9;
+  --destructive-foreground: #F5F5F5;
   --border: #262626;
   --input: #262626;
-  --ring: #c4a77d;
+  --ring: #E8DCCB;
   --radius: 0rem;
-  --earth: #c4a77d;
-  --earth-dark: #8b7355;
-  --offwhite: #f5f5f0;
+  --sand: #E8DCCB;
+  --sand-dark: #c9b89a;
+  --offwhite: #F5F5F5;
+  --green: #2E7D32;
 }
 
 @theme inline {
@@ -52,9 +53,10 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-earth: var(--earth);
-  --color-earth-dark: var(--earth-dark);
+  --color-sand: var(--sand);
+  --color-sand-dark: var(--sand-dark);
   --color-offwhite: var(--offwhite);
+  --color-green: var(--green);
   --radius-sm: 0;
   --radius-md: 0;
   --radius-lg: 0;

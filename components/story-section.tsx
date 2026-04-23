@@ -15,7 +15,7 @@ export function StorySection() {
             transition={{ duration: 0.8 }}
             className="mb-8"
           >
-            <span className="text-[120px] md:text-[180px] lg:text-[220px] font-serif text-earth/20 leading-none select-none">
+            <span className="text-[120px] md:text-[180px] lg:text-[220px] font-serif text-sand/20 leading-none select-none">
               ح
             </span>
           </motion.div>
@@ -30,7 +30,9 @@ export function StorySection() {
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif tracking-tight leading-tight text-balance">
               Huroof means letters.
               <br />
-              <span className="text-earth">Letters build identity.</span>
+              <span className="text-sand">Letters form identity.</span>
+              <br />
+              We turn them into what you wear.
             </h2>
           </motion.div>
 
@@ -41,7 +43,8 @@ export function StorySection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
           >
-            Every piece we create is a letter in your story. Not fashion for fashion&apos;s sake—but clothing that speaks who you are before you say a word.
+            Every piece we create is a letter in your story. Arabic typography meets streetwear. 
+            Modest fashion meets modern design. This represents you—not just another clothing site.
           </motion.p>
 
           {/* Signature */}
@@ -54,7 +57,7 @@ export function StorySection() {
           >
             <div className="w-12 h-px bg-border" />
             <span className="text-xs uppercase tracking-widest text-muted-foreground">
-              Est. 2024
+              huroofcollection.shop
             </span>
             <div className="w-12 h-px bg-border" />
           </motion.div>

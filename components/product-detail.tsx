@@ -4,7 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { ArrowLeft, Check, Truck, RotateCcw, Shield } from "lucide-react"
+import { ArrowLeft, Check, Truck, RotateCcw, Shield, Sparkles } from "lucide-react"
 import { type Product } from "@/lib/products"
 import { useCartStore } from "@/lib/cart-store"
 
@@ -16,6 +16,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
   const [selectedSize, setSelectedSize] = useState<string | null>(null)
   const [activeImage, setActiveImage] = useState(0)
   const [isAdded, setIsAdded] = useState(false)
+  const [customText, setCustomText] = useState("")
   const { addItem } = useCartStore()
 
   const handleAddToCart = () => {
@@ -33,7 +34,14 @@ export function ProductDetail({ product }: ProductDetailProps) {
     setTimeout(() => setIsAdded(false), 2000)
   }
 
-  const isLowStock = product.stock <= 5
+  const isLowStock = product.stock <= 10
+
+  const categoryLabel = {
+    men: "Men",
+    women: "Women", 
+    pod: "Print On Demand",
+    accessories: "Accessories"
+  }[product.category]
 
   return (
     <div className="min-h-screen pt-20">
@@ -48,7 +56,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
         </Link>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-          {/* Image Gallery - 80% visual */}
+          {/* Image Gallery */}
           <div className="space-y-4">
             {/* Main Image */}
             <motion.div
@@ -73,8 +81,18 @@ export function ProductDetail({ product }: ProductDetailProps) {
                     New
                   </span>
                 )}
-                {isLowStock && (
-                  <span className="bg-earth text-background px-3 py-1.5 text-xs uppercase tracking-wider">
+                {product.isCustomizable && (
+                  <span className="bg-sand text-background px-3 py-1.5 text-xs uppercase tracking-wider">
+                    Customizable
+                  </span>
+                )}
+                {product.isBestSeller && (
+                  <span className="bg-green text-foreground px-3 py-1.5 text-xs uppercase tracking-wider">
+                    Best Seller
+                  </span>
+                )}
+                {isLowStock && !product.isCustomizable && (
+                  <span className="bg-sand text-background px-3 py-1.5 text-xs uppercase tracking-wider">
                     Only {product.stock} Left
                   </span>
                 )}
@@ -107,21 +125,24 @@ export function ProductDetail({ product }: ProductDetailProps) {
             )}
           </div>
 
-          {/* Product Info - 20% info, minimal */}
+          {/* Product Info */}
           <div className="lg:py-8">
             {/* Category */}
-            <span className="text-xs uppercase tracking-widest text-earth">
-              {product.category === "him"
-                ? "For Him"
-                : product.category === "her"
-                ? "For Her"
-                : "Unisex"}
+            <span className="text-xs uppercase tracking-widest text-sand">
+              {categoryLabel}
             </span>
 
             {/* Title */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif mt-2 tracking-tight">
               {product.name}
             </h1>
+
+            {/* Arabic Name */}
+            {product.nameArabic && (
+              <span className="text-xl text-muted-foreground font-serif mt-1 block">
+                {product.nameArabic}
+              </span>
+            )}
 
             {/* Price */}
             <div className="flex items-center gap-3 mt-4">
@@ -137,6 +158,28 @@ export function ProductDetail({ product }: ProductDetailProps) {
             <p className="mt-6 text-muted-foreground leading-relaxed">
               {product.description}
             </p>
+
+            {/* Custom Text Input for POD Products */}
+            {product.isCustomizable && (
+              <div className="mt-8 p-4 bg-secondary/50 border border-border">
+                <div className="flex items-center gap-2 mb-3">
+                  <Sparkles className="w-4 h-4 text-sand" />
+                  <span className="text-sm uppercase tracking-widest">
+                    Customize Your Design
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  value={customText}
+                  onChange={(e) => setCustomText(e.target.value)}
+                  placeholder="Enter your text (Arabic or English)..."
+                  className="w-full bg-background border border-border px-4 py-3 text-sm focus:outline-none focus:border-sand transition-colors"
+                />
+                <p className="text-xs text-muted-foreground mt-2">
+                  We&apos;ll transform your text into beautiful calligraphy
+                </p>
+              </div>
+            )}
 
             {/* Size Selector */}
             <div className="mt-8">
@@ -169,12 +212,12 @@ export function ProductDetail({ product }: ProductDetailProps) {
             <div className="mt-8">
               <button
                 onClick={handleAddToCart}
-                disabled={!selectedSize}
+                disabled={!selectedSize || (product.isCustomizable && !customText)}
                 className={`w-full py-4 text-sm uppercase tracking-widest font-medium flex items-center justify-center gap-2 transition-all ${
-                  selectedSize
+                  selectedSize && (!product.isCustomizable || customText)
                     ? isAdded
-                      ? "bg-earth text-background"
-                      : "bg-foreground text-background hover:bg-earth"
+                      ? "bg-sand text-background"
+                      : "bg-foreground text-background hover:bg-sand"
                     : "bg-muted text-muted-foreground cursor-not-allowed"
                 }`}
               >
@@ -197,7 +240,11 @@ export function ProductDetail({ product }: ProductDetailProps) {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                     >
-                      {selectedSize ? "Add to Cart" : "Select a Size"}
+                      {!selectedSize 
+                        ? "Select a Size" 
+                        : product.isCustomizable && !customText
+                        ? "Enter Your Text"
+                        : "Add to Cart"}
                     </motion.span>
                   )}
                 </AnimatePresence>
@@ -207,16 +254,16 @@ export function ProductDetail({ product }: ProductDetailProps) {
             {/* Trust Badges */}
             <div className="mt-10 grid grid-cols-3 gap-4 pt-8 border-t border-border">
               <div className="flex flex-col items-center text-center">
-                <Truck className="w-5 h-5 text-earth mb-2" />
+                <Truck className="w-5 h-5 text-sand mb-2" />
                 <span className="text-xs uppercase tracking-wide">
-                  Free Shipping
+                  Fast Shipping
                 </span>
                 <span className="text-[10px] text-muted-foreground mt-1">
-                  Orders $100+
+                  48h Dispatch
                 </span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <RotateCcw className="w-5 h-5 text-earth mb-2" />
+                <RotateCcw className="w-5 h-5 text-sand mb-2" />
                 <span className="text-xs uppercase tracking-wide">
                   Easy Returns
                 </span>
@@ -225,7 +272,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 </span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <Shield className="w-5 h-5 text-earth mb-2" />
+                <Shield className="w-5 h-5 text-sand mb-2" />
                 <span className="text-xs uppercase tracking-wide">
                   Secure Pay
                 </span>
@@ -247,11 +294,11 @@ export function ProductDetail({ product }: ProductDetailProps) {
           </div>
           <button
             onClick={handleAddToCart}
-            disabled={!selectedSize}
+            disabled={!selectedSize || (product.isCustomizable && !customText)}
             className={`px-6 py-3 text-sm uppercase tracking-widest font-medium transition-all ${
-              selectedSize
+              selectedSize && (!product.isCustomizable || customText)
                 ? isAdded
-                  ? "bg-earth text-background"
+                  ? "bg-sand text-background"
                   : "bg-foreground text-background"
                 : "bg-muted text-muted-foreground"
             }`}

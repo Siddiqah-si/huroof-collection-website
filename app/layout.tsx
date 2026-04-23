@@ -16,34 +16,39 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Huroof Collection | Not Just Clothing. Identity.",
+  title: "Huroof Collection | Wear Meaning. Not Just Fashion.",
   description:
-    "Huroof means letters. Letters build identity. Shop the latest drops from Huroof Collection - where fashion meets self-expression.",
+    "Arabic typography meets modern fashion. Shop culturally-inspired streetwear, modest Indo-Pakistani styles, and custom print-on-demand apparel. Express your identity.",
   keywords: [
-    "fashion",
+    "arabic fashion",
+    "modest fashion",
     "streetwear",
-    "identity",
-    "clothing",
+    "islamic fashion",
+    "indo-pak fashion",
+    "print on demand",
+    "custom apparel",
+    "arabic typography",
     "huroof",
-    "drops",
-    "limited edition",
+    "cultural fashion",
   ],
   openGraph: {
-    title: "Huroof Collection",
-    description: "Not Just Clothing. Identity.",
+    title: "Huroof Collection | Arabic. Culture. Identity.",
+    description: "Wear Meaning. Not Just Fashion. Arabic typography meets modern streetwear and modest fashion.",
     url: "https://huroofcollection.shop",
     siteName: "Huroof Collection",
     type: "website",
+    images: ["/og-image.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Huroof Collection",
-    description: "Not Just Clothing. Identity.",
+    description: "Wear Meaning. Not Just Fashion.",
+    images: ["/og-image.jpg"],
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#0B0B0B",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,

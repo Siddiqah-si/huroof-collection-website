@@ -26,11 +26,11 @@ export function Footer() {
             <input
               type="email"
               placeholder="your@email.com"
-              className="flex-1 bg-secondary border border-border px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:border-earth transition-colors"
+              className="flex-1 bg-secondary border border-border px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:border-sand transition-colors"
             />
             <button
               type="submit"
-              className="bg-foreground text-background px-6 py-3 hover:bg-earth transition-colors"
+              className="bg-foreground text-background px-6 py-3 hover:bg-sand transition-colors"
               aria-label="Subscribe"
             >
               <Send className="w-4 h-4" />
@@ -46,10 +46,10 @@ export function Footer() {
             {/* Brand */}
             <div className="col-span-2 md:col-span-1">
               <Link href="/" className="font-serif text-2xl tracking-wider">
-                HUROOF
+                <span className="text-sand">حروف</span> HUROOF
               </Link>
               <p className="mt-4 text-sm text-muted-foreground">
-                Not Just Clothing. Identity.
+                Wear Meaning. Not Just Fashion.
               </p>
               <div className="flex items-center gap-4 mt-6">
                 <a
@@ -86,18 +86,26 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#shop"
+                    href="#shop?category=men"
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    For Him
+                    Men
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="#shop"
+                    href="#shop?category=women"
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    For Her
+                    Women
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#customize"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Print On Demand
                   </Link>
                 </li>
               </ul>

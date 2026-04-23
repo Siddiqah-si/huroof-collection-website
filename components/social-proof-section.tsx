@@ -6,28 +6,28 @@ import { Instagram } from "lucide-react"
 
 const ugcImages = [
   {
-    src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
-    alt: "Community member wearing Huroof",
+    src: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&q=80",
+    alt: "Man wearing Arabic cap streetwear",
   },
   {
-    src: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&q=80",
-    alt: "Street style with Huroof",
+    src: "https://images.unsplash.com/photo-1590149613616-be8fdc21f9c4?w=600&q=80",
+    alt: "Woman in elegant abaya",
   },
   {
-    src: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
-    alt: "Fashion editorial featuring Huroof",
+    src: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&q=80",
+    alt: "Indo-Pakistani fashion style",
   },
   {
-    src: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80",
-    alt: "Urban style with Huroof collection",
+    src: "https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=600&q=80",
+    alt: "Modest fashion outfit",
   },
   {
-    src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
-    alt: "Model in Huroof attire",
+    src: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80",
+    alt: "Arabic typography t-shirt",
   },
   {
-    src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&q=80",
-    alt: "Casual Huroof outfit",
+    src: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80",
+    alt: "Modest maxi dress style",
   },
 ]
 
@@ -43,7 +43,7 @@ export function SocialProofSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-xs uppercase tracking-widest text-earth mb-4 block">
+          <span className="text-xs uppercase tracking-widest text-sand mb-4 block">
             Community
           </span>
           <h2 className="text-4xl md:text-6xl font-serif tracking-tight">
@@ -112,7 +112,7 @@ export function SocialProofSection() {
           <p className="text-sm text-muted-foreground mb-4">
             Tag us to be featured
           </p>
-          <span className="text-lg font-serif text-earth">#HUROOFIDENTITY</span>
+          <span className="text-lg font-serif text-sand">#HUROOFIDENTITY</span>
         </motion.div>
       </div>
     </section>

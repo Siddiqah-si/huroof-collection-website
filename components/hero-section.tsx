@@ -4,36 +4,58 @@ import { useRef, useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { ArrowDown } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function HeroSection() {
-  const videoRef = useRef<HTMLVideoElement>(null)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const slides = [
+    {
+      image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1920&q=80",
+      alt: "Man wearing Arabic typography cap and streetwear"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1590149613616-be8fdc21f9c4?w=1920&q=80",
+      alt: "Woman in elegant modest fashion"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=1920&q=80",
+      alt: "Indo-Pakistani inspired fashion"
+    }
+  ]
 
   useEffect(() => {
     setIsLoaded(true)
-  }, [])
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [slides.length])
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Background Video/Image with fast cuts simulation */}
+      {/* Background Image Slideshow */}
       <div className="absolute inset-0">
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1920&q=80"
-        >
-          <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-fashion-woman-with-silver-and-neon-makeup-39875-large.mp4"
-            type="video/mp4"
-          />
-        </video>
+        {slides.map((slide, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: currentSlide === index ? 1 : 0 }}
+            transition={{ duration: 1 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={slide.image}
+              alt={slide.alt}
+              fill
+              className="object-cover"
+              priority={index === 0}
+            />
+          </motion.div>
+        ))}
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-background/60" />
-        {/* Grain texture is applied globally */}
+        <div className="absolute inset-0 bg-background/70" />
       </div>
 
       {/* Content */}
@@ -42,64 +64,74 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isLoaded ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl"
+          className="max-w-5xl"
         >
-          {/* Main Headline with glitch effect */}
+          {/* Arabic Typography Element */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="mb-6"
+          >
+            <span className="text-6xl md:text-8xl font-serif text-sand/30 select-none">
+              حروف
+            </span>
+          </motion.div>
+
+          {/* Main Headline */}
           <h1 className="relative">
             <motion.span
-              className="block text-5xl md:text-7xl lg:text-9xl font-serif tracking-tight leading-none"
+              className="block text-4xl md:text-6xl lg:text-8xl font-serif tracking-tight leading-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              Not Just
+              Wear Meaning.
             </motion.span>
             <motion.span
-              className="block text-5xl md:text-7xl lg:text-9xl font-serif tracking-tight leading-none mt-2"
+              className="block text-4xl md:text-6xl lg:text-8xl font-serif tracking-tight leading-none mt-2 text-sand"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Clothing.
-            </motion.span>
-            <motion.span
-              className="block text-5xl md:text-7xl lg:text-9xl font-serif tracking-tight leading-none mt-2 text-earth glitch-text"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              Identity.
+              Not Just Fashion.
             </motion.span>
           </h1>
 
           {/* Subtext */}
           <motion.p
-            className="mt-8 text-lg md:text-xl text-muted-foreground tracking-wide uppercase"
+            className="mt-8 text-lg md:text-xl text-muted-foreground tracking-wide"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Huroof is worn, not styled.
+            Arabic. Culture. Identity.
           </motion.p>
 
-          {/* CTA */}
+          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            className="mt-12"
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link
-              href="#drops"
-              className="group inline-flex items-center gap-3 bg-foreground text-background px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-earth hover:text-background transition-all duration-300"
+              href="#shop"
+              className="group inline-flex items-center gap-3 bg-foreground text-background px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-sand hover:text-background transition-all duration-300"
             >
-              Explore Drop
+              Shop Collection
               <motion.span
                 animate={{ x: [0, 5, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
                 →
               </motion.span>
+            </Link>
+            <Link
+              href="#customize"
+              className="group inline-flex items-center gap-3 border border-foreground px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-foreground hover:text-background transition-all duration-300"
+            >
+              Customize Your Style
             </Link>
           </motion.div>
         </motion.div>
@@ -109,14 +141,14 @@ export function HeroSection() {
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
+          transition={{ delay: 1 }}
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
             className="flex flex-col items-center gap-2 text-muted-foreground"
           >
-            <span className="text-xs uppercase tracking-widest">Scroll</span>
+            <span className="text-xs uppercase tracking-widest">Discover</span>
             <ArrowDown className="w-4 h-4" />
           </motion.div>
         </motion.div>
@@ -125,8 +157,22 @@ export function HeroSection() {
       {/* Side text decoration */}
       <div className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 hidden lg:block">
         <span className="text-xs uppercase tracking-widest text-muted-foreground [writing-mode:vertical-rl] rotate-180">
-          Est. 2024 — Identity First
+          Arabic Typography × Modest Fashion × Streetwear
         </span>
+      </div>
+
+      {/* Slide indicators */}
+      <div className="absolute bottom-8 right-8 hidden md:flex items-center gap-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-2 h-2 transition-all duration-300 ${
+              currentSlide === index ? "w-8 bg-sand" : "bg-muted-foreground/50"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   )

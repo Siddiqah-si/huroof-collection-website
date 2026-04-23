@@ -20,6 +20,13 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const navLinks = [
+    { href: "#shop?category=men", label: "Men" },
+    { href: "#shop?category=women", label: "Women" },
+    { href: "#customize", label: "Custom" },
+    { href: "#shop?category=accessories", label: "Accessories" },
+  ]
+
   return (
     <>
       <header
@@ -43,31 +50,23 @@ export function Header() {
             {/* Logo */}
             <Link
               href="/"
-              className="font-serif text-xl md:text-2xl tracking-wider glitch-text"
+              className="font-serif text-xl md:text-2xl tracking-wider"
             >
-              HUROOF
+              <span className="text-sand">حروف</span>
+              <span className="ml-2">HUROOF</span>
             </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
-              <Link
-                href="#drops"
-                className="text-sm uppercase tracking-widest hover:text-earth transition-colors"
-              >
-                Drops
-              </Link>
-              <Link
-                href="#shop"
-                className="text-sm uppercase tracking-widest hover:text-earth transition-colors"
-              >
-                Shop
-              </Link>
-              <Link
-                href="#story"
-                className="text-sm uppercase tracking-widest hover:text-earth transition-colors"
-              >
-                Story
-              </Link>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm uppercase tracking-widest hover:text-sand transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </nav>
 
             {/* Actions */}
@@ -88,7 +87,7 @@ export function Header() {
                   <motion.span
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-earth text-[10px] flex items-center justify-center text-background font-medium"
+                    className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-sand text-[10px] flex items-center justify-center text-background font-medium"
                   >
                     {itemCount}
                   </motion.span>
@@ -118,7 +117,9 @@ export function Header() {
               className="fixed left-0 top-0 bottom-0 w-full max-w-sm bg-background z-50 border-r border-border"
             >
               <div className="flex items-center justify-between p-4 border-b border-border">
-                <span className="font-serif text-xl tracking-wider">HUROOF</span>
+                <span className="font-serif text-xl tracking-wider">
+                  <span className="text-sand">حروف</span> HUROOF
+                </span>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="p-2 hover:bg-secondary transition-colors"
@@ -128,28 +129,27 @@ export function Header() {
                 </button>
               </div>
               <nav className="flex flex-col p-4 gap-1">
-                <Link
-                  href="#drops"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="py-4 text-2xl font-serif tracking-wider border-b border-border hover:text-earth transition-colors"
-                >
-                  Drops
-                </Link>
-                <Link
-                  href="#shop"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="py-4 text-2xl font-serif tracking-wider border-b border-border hover:text-earth transition-colors"
-                >
-                  Shop
-                </Link>
-                <Link
-                  href="#story"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="py-4 text-2xl font-serif tracking-wider border-b border-border hover:text-earth transition-colors"
-                >
-                  Story
-                </Link>
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="py-4 text-2xl font-serif tracking-wider border-b border-border hover:text-sand transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </nav>
+              {/* Mobile CTA */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-border">
+                <Link
+                  href="#customize"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full py-4 bg-sand text-background text-center text-sm uppercase tracking-widest font-medium block"
+                >
+                  Create Your Design
+                </Link>
+              </div>
             </motion.div>
           </>
         )}

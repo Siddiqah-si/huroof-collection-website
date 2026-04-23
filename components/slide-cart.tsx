@@ -65,7 +65,7 @@ export function SlideCart() {
                   </p>
                   <button
                     onClick={closeCart}
-                    className="inline-flex items-center gap-2 text-sm uppercase tracking-widest hover:text-earth transition-colors"
+                    className="inline-flex items-center gap-2 text-sm uppercase tracking-widest hover:text-sand transition-colors"
                   >
                     Continue Shopping
                     <ArrowRight className="w-4 h-4" />
@@ -170,7 +170,7 @@ export function SlideCart() {
                 </p>
 
                 {/* Checkout Button */}
-                <button className="w-full bg-foreground text-background py-4 text-sm uppercase tracking-widest font-medium hover:bg-earth transition-colors flex items-center justify-center gap-2">
+                <button className="w-full bg-foreground text-background py-4 text-sm uppercase tracking-widest font-medium hover:bg-sand transition-colors flex items-center justify-center gap-2">
                   Checkout
                   <ArrowRight className="w-4 h-4" />
                 </button>
