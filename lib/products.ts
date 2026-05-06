@@ -1,7 +1,6 @@
 export interface Product {
   id: string
   name: string
-  nameArabic?: string
   price: number
   originalPrice?: number
   images: string[]
@@ -19,8 +18,7 @@ export const products: Product[] = [
   {
     id: "1",
     name: "Arabic Script Cap",
-    nameArabic: "قبعة حروف",
-    price: 39,
+    price: 3237,
     images: [
       "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&q=80",
       "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=800&q=80",
@@ -36,8 +34,7 @@ export const products: Product[] = [
   {
     id: "2",
     name: "Bismillah Oversized Tee",
-    nameArabic: "بسم الله",
-    price: 59,
+    price: 4897,
     images: [
       "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&q=80",
       "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&q=80",
@@ -52,9 +49,8 @@ export const products: Product[] = [
   {
     id: "3",
     name: "Sabr Hoodie",
-    nameArabic: "صبر",
-    price: 89,
-    originalPrice: 109,
+    price: 7387,
+    originalPrice: 9047,
     images: [
       "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80",
       "https://images.unsplash.com/photo-1578768079052-aa76e52ff62e?w=800&q=80",
@@ -69,8 +65,7 @@ export const products: Product[] = [
   {
     id: "4",
     name: "Streetwear Arabic Tee",
-    nameArabic: "شارع",
-    price: 49,
+    price: 4067,
     images: [
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80",
       "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800&q=80",
@@ -85,8 +80,7 @@ export const products: Product[] = [
   {
     id: "5",
     name: "Elegant Abaya",
-    nameArabic: "عباية",
-    price: 129,
+    price: 10707,
     images: [
       "https://images.unsplash.com/photo-1590149613616-be8fdc21f9c4?w=800&q=80",
       "https://images.unsplash.com/photo-1583234944037-8620a0e4e5a0?w=800&q=80",
@@ -101,8 +95,7 @@ export const products: Product[] = [
   {
     id: "6",
     name: "Indo-Pak Kurta Set",
-    nameArabic: "كورتا",
-    price: 159,
+    price: 13197,
     images: [
       "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&q=80",
       "https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=800&q=80",
@@ -117,8 +110,7 @@ export const products: Product[] = [
   {
     id: "7",
     name: "Modest Maxi Dress",
-    nameArabic: "فستان",
-    price: 109,
+    price: 9047,
     images: [
       "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&q=80",
       "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=80",
@@ -133,8 +125,7 @@ export const products: Product[] = [
   {
     id: "8",
     name: "Arabic Script Women's Tee",
-    nameArabic: "حروف",
-    price: 49,
+    price: 4067,
     images: [
       "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&q=80",
       "https://images.unsplash.com/photo-1485968579169-a6b30571e7c4?w=800&q=80",
@@ -149,8 +140,7 @@ export const products: Product[] = [
   {
     id: "9",
     name: "Custom Arabic Name Tee",
-    nameArabic: "اسمك",
-    price: 69,
+    price: 5727,
     images: [
       "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=800&q=80",
       "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=800&q=80",
@@ -166,8 +156,7 @@ export const products: Product[] = [
   {
     id: "10",
     name: "Custom Arabic Quote Hoodie",
-    nameArabic: "اقتباس",
-    price: 99,
+    price: 8217,
     images: [
       "https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=800&q=80",
       "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&q=80",
@@ -182,8 +171,7 @@ export const products: Product[] = [
   {
     id: "11",
     name: "Custom Cap - Your Text",
-    nameArabic: "قبعتك",
-    price: 49,
+    price: 4067,
     images: [
       "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=800&q=80",
       "https://images.unsplash.com/photo-1534215754734-18e55d13e346?w=800&q=80",
@@ -200,8 +188,7 @@ export const products: Product[] = [
   {
     id: "12",
     name: "Arabic Tote Bag",
-    nameArabic: "حقيبة",
-    price: 35,
+    price: 2905,
     images: [
       "https://images.unsplash.com/photo-1597633125184-9fd7e54f4e49?w=800&q=80",
       "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=800&q=80",
@@ -215,8 +202,7 @@ export const products: Product[] = [
   {
     id: "13",
     name: "Prayer Beads - Tasbih",
-    nameArabic: "تسبيح",
-    price: 25,
+    price: 2075,
     images: [
       "https://images.unsplash.com/photo-1585686369536-c59bd03d3c98?w=800&q=80",
       "https://images.unsplash.com/photo-1609158584287-7de33b98e1dc?w=800&q=80",
@@ -230,8 +216,7 @@ export const products: Product[] = [
   {
     id: "14",
     name: "Arabic Beanie",
-    nameArabic: "قلنسوة",
-    price: 29,
+    price: 2407,
     images: [
       "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=800&q=80",
       "https://images.unsplash.com/photo-1510598969022-c4c6c5d05769?w=800&q=80",

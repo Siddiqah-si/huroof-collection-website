@@ -46,9 +46,6 @@ export function CulturalSection() {
                 
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10">
-                  <span className="text-4xl md:text-5xl font-serif text-sand/40 mb-2">
-                    عباية
-                  </span>
                   <h3 className="text-2xl md:text-4xl font-serif mb-3">
                     Modern Modest Wear
                   </h3>
@@ -83,9 +80,6 @@ export function CulturalSection() {
                 
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10">
-                  <span className="text-4xl md:text-5xl font-serif text-sand/40 mb-2">
-                    شارع
-                  </span>
                   <h3 className="text-2xl md:text-4xl font-serif mb-3">
                     Streetwear with Meaning
                   </h3>

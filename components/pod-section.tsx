@@ -4,11 +4,12 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
+import { formatInr } from "@/lib/utils"
 
 const productTypes = [
-  { id: "tshirt", label: "T-Shirt", price: 69 },
-  { id: "hoodie", label: "Hoodie", price: 99 },
-  { id: "cap", label: "Cap", price: 49 },
+  { id: "tshirt", label: "T-Shirt", price: 5727 },
+  { id: "hoodie", label: "Hoodie", price: 8217 },
+  { id: "cap", label: "Cap", price: 4067 },
 ]
 
 const exampleTexts = [
@@ -23,7 +24,7 @@ export function PodSection() {
   const [selectedProduct, setSelectedProduct] = useState("tshirt")
   const [isArabic, setIsArabic] = useState(true)
 
-  const selectedPrice = productTypes.find(p => p.id === selectedProduct)?.price || 69
+  const selectedPrice = productTypes.find(p => p.id === selectedProduct)?.price || 5727
 
   return (
     <section id="customize" className="py-20 md:py-32 bg-secondary/30">
@@ -181,7 +182,7 @@ export function PodSection() {
                 <span className="text-xs text-muted-foreground uppercase tracking-wider">
                   Starting from
                 </span>
-                <div className="text-3xl font-serif">${selectedPrice}</div>
+                <div className="text-3xl font-serif">{formatInr(selectedPrice)}</div>
               </div>
               <Link
                 href="#"

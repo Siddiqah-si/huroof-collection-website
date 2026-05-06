@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ArrowLeft, Check, Truck, RotateCcw, Shield, Sparkles } from "lucide-react"
 import { type Product } from "@/lib/products"
 import { useCartStore } from "@/lib/cart-store"
+import { formatInr } from "@/lib/utils"
 
 interface ProductDetailProps {
   product: Product
@@ -137,19 +138,12 @@ export function ProductDetail({ product }: ProductDetailProps) {
               {product.name}
             </h1>
 
-            {/* Arabic Name */}
-            {product.nameArabic && (
-              <span className="text-xl text-muted-foreground font-serif mt-1 block">
-                {product.nameArabic}
-              </span>
-            )}
-
             {/* Price */}
             <div className="flex items-center gap-3 mt-4">
-              <span className="text-2xl">${product.price}</span>
+              <span className="text-2xl">{formatInr(product.price)}</span>
               {product.originalPrice && (
                 <span className="text-lg text-muted-foreground line-through">
-                  ${product.originalPrice}
+                  {formatInr(product.originalPrice)}
                 </span>
               )}
             </div>
@@ -290,7 +284,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
         <div className="flex items-center gap-4">
           <div className="flex-1">
             <div className="text-sm font-medium">{product.name}</div>
-            <div className="text-lg font-serif">${product.price}</div>
+            <div className="text-lg font-serif">{formatInr(product.price)}</div>
           </div>
           <button
             onClick={handleAddToCart}

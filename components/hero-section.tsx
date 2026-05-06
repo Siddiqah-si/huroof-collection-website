@@ -105,7 +105,7 @@ export function HeroSection() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Arabic. Culture. Identity.
+             Culture. Identity.
           </motion.p>
 
           {/* CTAs */}
@@ -157,7 +157,7 @@ export function HeroSection() {
       {/* Side text decoration */}
       <div className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 hidden lg:block">
         <span className="text-xs uppercase tracking-widest text-muted-foreground [writing-mode:vertical-rl] rotate-180">
-          Arabic Typography × Modest Fashion × Streetwear
+          Customised Typography × Modest Fashion × Streetwear
         </span>
       </div>
 

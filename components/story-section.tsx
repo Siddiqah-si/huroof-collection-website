@@ -7,19 +7,6 @@ export function StorySection() {
     <section id="story" className="py-20 md:py-32 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Arabic Letter Decoration */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-8"
-          >
-            <span className="text-[120px] md:text-[180px] lg:text-[220px] font-serif text-sand/20 leading-none select-none">
-              ح
-            </span>
-          </motion.div>
-
           {/* Story Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}

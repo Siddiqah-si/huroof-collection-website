@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Plus } from "lucide-react"
 import { type Product } from "@/lib/products"
 import { useCartStore } from "@/lib/cart-store"
+import { formatInr } from "@/lib/utils"
 
 interface ProductCardProps {
   product: Product
@@ -147,16 +148,13 @@ export function ProductCard({ product, showLimitedBadge }: ProductCardProps) {
         <h3 className="text-sm font-medium tracking-wide group-hover:text-sand transition-colors line-clamp-1">
           {product.name}
         </h3>
-        {product.nameArabic && (
-          <span className="text-xs text-muted-foreground">{product.nameArabic}</span>
-        )}
         <div className="flex items-center gap-2">
           <span className="text-sm">
-            ${product.price}
+            {formatInr(product.price)}
           </span>
           {product.originalPrice && (
             <span className="text-sm text-muted-foreground line-through">
-              ${product.originalPrice}
+              {formatInr(product.originalPrice)}
             </span>
           )}
         </div>

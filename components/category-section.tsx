@@ -8,7 +8,6 @@ const categories = [
   {
     id: "men",
     name: "Men",
-    nameArabic: "رجال",
     description: "Caps, Arabic t-shirts, streetwear",
     image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=800&q=80",
     href: "#shop?category=men",
@@ -16,7 +15,6 @@ const categories = [
   {
     id: "women",
     name: "Women",
-    nameArabic: "نساء",
     description: "Modest dresses, abayas, Indo-Pak styles",
     image: "https://images.unsplash.com/photo-1590149613616-be8fdc21f9c4?w=800&q=80",
     href: "#shop?category=women",
@@ -24,7 +22,6 @@ const categories = [
   {
     id: "pod",
     name: "Print On Demand",
-    nameArabic: "طباعة",
     description: "Custom Arabic/English text apparel",
     image: "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=800&q=80",
     href: "#customize",
@@ -32,7 +29,6 @@ const categories = [
   {
     id: "accessories",
     name: "Accessories",
-    nameArabic: "إكسسوارات",
     description: "Bags, beanies, prayer beads",
     image: "https://images.unsplash.com/photo-1597633125184-9fd7e54f4e49?w=800&q=80",
     href: "#shop?category=accessories",
@@ -86,12 +82,6 @@ export function CategorySection() {
                 
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
-                  {/* Arabic Name */}
-                  <span className="text-2xl md:text-3xl font-serif text-sand/60 mb-1">
-                    {category.nameArabic}
-                  </span>
-                  
-                  {/* English Name */}
                   <h3 className="text-lg md:text-xl font-medium mb-1 group-hover:text-sand transition-colors">
                     {category.name}
                   </h3>

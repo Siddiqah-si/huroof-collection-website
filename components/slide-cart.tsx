@@ -4,6 +4,7 @@ import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Plus, Minus, ShoppingBag, ArrowRight } from "lucide-react"
 import { useCartStore } from "@/lib/cart-store"
+import { formatInr } from "@/lib/utils"
 
 export function SlideCart() {
   const {
@@ -102,7 +103,7 @@ export function SlideCart() {
                           Size: {item.size}
                         </p>
                         <p className="text-sm font-medium mt-2">
-                          ${item.price}
+                          {formatInr(item.price)}
                         </p>
 
                         {/* Quantity Controls */}
@@ -160,7 +161,7 @@ export function SlideCart() {
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Subtotal</span>
                   <span className="text-lg font-medium">
-                    ${totalPrice().toFixed(2)}
+                    {formatInr(totalPrice())}
                   </span>
                 </div>
 
